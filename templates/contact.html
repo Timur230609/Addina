@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Contact {% endblock title %}
+{% block content %}     
+
+
+   <!-- Body main wrapper start -->
+   <main>
+
+      <!-- Breadcrumb area start  -->
+      <div class="breadcrumb__area theme-bg-1 p-relative z-index-11 pt-95 pb-95">
+         <div class="breadcrumb__thumb" data-background="{% static 'imgs/bg/breadcrumb-bg.jpg' %}"></div>
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-xxl-12">
+                  <div class="breadcrumb__wrapper text-center">
+                     <h2 class="breadcrumb__title">Contact</h2>
+                     <div class="breadcrumb__menu">
+                        <nav>
+                           <ul>
+                              <li><span><a href="{% url 'home-page' %}">Home</a></span></li>
+                              <li><span>Contact</span></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Breadcrumb area start  -->
+
+      <!-- Contact area start -->
+      <div class="contact-area section-space">
+         <div class="container">
+            <div class="row g-5">
+               <div class="col-xxl-4 col-xl-4 col-lg-6">
+                  <div class="contact-info-item text-center">
+                     <div class="contact-info-icon">
+                        <span><i class="fa-light fa-location-dot"></i></span>
+                     </div>
+                     <div class="contact-info-content">
+                        <h4>Our Location</h4>
+                        <p><a href="#">House #5, Street Number #98, brasilia- 70000-000, Brazil.</a></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-4 col-xl-4 col-lg-6">
+                  <div class="contact-info-item text-center">
+                     <div class="contact-info-icon">
+                        <span><i class="fa-light fa-envelope"></i></span>
+                     </div>
+                     <div class="contact-info-content">
+                        <h4>Our Email Address</h4>
+                        <span><a href="mailto:contact@DOGRI.com">contact@DOGRI.com</a></span>
+                        <span><a href="mailto:support@DOGRI.com">support@DOGRI.com</a></span>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-4 col-xl-4 col-lg-6">
+                  <div class="contact-info-item text-center">
+                     <div class="contact-info-icon">
+                        <span><i class="fa-thin fa-phone"></i></span>
+                     </div>
+                     <div class="contact-info-content">
+                        <h4>Contact Phone Number</h4>
+                        <span><a href="mailto:+380961381876">+380961381876</a></span>
+                        <span><a href="mailto:+380961381877">+380961381877</a></span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="contact-wrapper pt-80">
+               <div class="row gy-50">
+                  <div class="col-xxl-6 col-xl-6">
+                     <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48831.745264050005!2d65.33041402735083!3d40.09806790871172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f51c6d7e12931b3%3A0x613f6eb9636019bb!2sNavoi%2C%20Samarqand%20Region%2C%20Uzbekistan!5e0!3m2!1sen!2sbd!4v1726227207612!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     </div>
+                  </div>
+                  <div class="col-xxl-6 col-xl-6">
+                     <div class="contact-from">
+                        <form action="{% url 'contact-page' %}"  method="post">
+                           {% csrf_token %}
+                           <div class="row">
+                              <div class="col-lg-6">
+                                 <div class="contact__from-input">
+                                    <input type="text"  name='name' placeholder="Full Name*">
+                                 </div>
+                              </div>
+                              <div class="col-lg-6">
+                                 <div class="contact__from-input">
+                                    <input type="text" name='email' placeholder="Email Address*">
+                                 </div>
+                              </div>
+                              <div class="col-lg-6">
+                                 <div class="contact__from-input">
+                                    <input type="tel" name='phone' placeholder="Phone Number">
+                                 </div>
+                              </div>
+                              <div class="col-lg-6">
+                                 <div class="contact__from-input">
+                                    <input type="date" name='birthday'>
+                                 </div>
+                              </div>
+                             
+                              <div class="col-lg-12">
+                                 <div class="contact__from-input">
+                                    <textarea name="content" placeholder="Your Message"></textarea>
+                                 </div>
+                              </div>
+                              <div class="col-12">
+                                 <div class="appointment__btn">
+                                    <button class="fill-btn" type="submit">
+                                       <span class="fill-btn-inner">
+                                          <span class="fill-btn-normal">send now<i
+                                                class="fa-regular fa-angle-right"></i></span>
+                                          <span class="fill-btn-hover">send now<i
+                                                class="fa-regular fa-angle-right"></i></span>
+                                       </span>
+                                    </button>
+                                 </div>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Contact area end -->
+
+   </main>
+   <!-- Body main wrapper end -->
+
+   {% endblock content %}   

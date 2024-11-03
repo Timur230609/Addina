@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Portfolio {% endblock title %}
+{% block content %}     
+
+   <!-- Body main wrapper start -->
+   <main>
+
+      <!-- Breadcrumb area start  -->
+      <div class="breadcrumb__area theme-bg-1 p-relative z-index-11 pt-95 pb-95">
+         <div class="breadcrumb__thumb" data-background="{% static 'imgs/bg/breadcrumb-bg.jpg' %}"></div>
+         <div class="container">
+            <div class="row justify-content-center">
+               <div class="col-xxl-12">
+                  <div class="breadcrumb__wrapper text-center">
+                     <h2 class="breadcrumb__title">Portfolio</h2>
+                     <div class="breadcrumb__menu">
+                        <nav>
+                           <ul>
+                              <li><span><a href="{% url 'home-page' %}">Home</a></span></li>
+                              <li><span>Portfolio</span></li>
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Breadcrumb area start  -->
+
+      <!-- Project area start -->
+      <section class="project-area theme-bg-4 section-space p-relative fix">
+         <div class="container">
+            <div class="row g-5">
+               <!-- <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                  {% for portfolio in portfolio %}
+                  <div class="project-item">
+                      <div class="project-thumb w-img">
+                          <img src="{{ portfolio.image.url }}" alt="">
+                      </div>
+                      <div class="project-content-inner">
+                          <div class="project-content">
+                              <span>{{ portfolio.category }}</span>
+                              <h4><a href="{% url 'portfolio-details-page' portfolio.id %}">{{ portfolio.title }}</a></h4>
+                          </div>
+                          <a class="round-link-40" href="{% url 'portfolio-details-page' portfolio.id %}">
+                              <i class="fa-regular fa-angle-right"></i>
+                          </a>
+                      </div>
+                  </div>
+              {% endfor %}
+               </div> -->
+               {% for portfolio in portfolio %}
+               <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
+                  <div class="project-item">
+                     <div class="project-thumb w-img">
+                        <img src="{{ portfolio.image.url }}" alt="">
+                     </div>
+                     <div class="project-content-inner">
+                        <div class="project-content">
+                           <span>{{ portfolio.category }}</span>
+                           <h4><a href="{% url 'portfolio-details-page' portfolio.id %}">{{ portfolio.title }}</a></h4>
+                        </div>
+                        <a class="round-link-40" href="{% url 'portfolio-details-page' portfolio.id %}"><i
+                              class="fa-regular fa-angle-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+
+            <div class="row">
+               <div class="col-xxl-12">
+                  <div class="pagination__wrapper mt-50">
+                     <div class="bd-basic__pagination d-flex align-items-center justify-content-center">
+                        <nav>
+                           <ul>
+                               {% if page_obj.has_previous %}
+                               <li>
+                                   <a href="?page=1">«</a>  <!-- Birinchi sahifaga o'tish -->
+                               </li>
+                               <li>
+                                   <a href="?page={{ page_obj.previous_page_number }}">‹</a>  <!-- Oldingi sahifaga o'tish -->
+                               </li>
+                               {% endif %}
+           
+                               {% for num in page_obj.paginator.page_range %}
+                               {% if num == page_obj.number %}
+                               <li><span class="current">{{ num }}</span></li>
+                               {% else %}
+                               <li><a href="?page={{ num }}">{{ num }}</a></li>
+                               {% endif %}
+                               {% endfor %}
+           
+                               {% if page_obj.has_next %}
+                               <li>
+                                   <a href="?page={{ page_obj.next_page_number }}">›</a>  <!-- Keyingi sahifaga o'tish -->
+                               </li>
+                               <li>
+                                   <a href="?page={{ page_obj.paginator.num_pages }}">»</a>  <!-- Yekun sahifaga o'tish -->
+                               </li>
+                               {% endif %}
+                           </ul>
+                       </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Project area end -->
+
+   </main>
+   <!-- Body main wrapper end -->
+
+   {% endblock content %}     
